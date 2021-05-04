@@ -1,3 +1,7 @@
+What does this code do?
+-----------------------
+Emulates the oystercard system. Features include top-up, touch-in, touch-out, deduct fare etc. (See user stories below)
+
 Startup
 -------
 1. Fork this repo, and clone to your local machine ##ADD HYPERLINK
