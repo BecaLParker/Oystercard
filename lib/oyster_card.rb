@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# seems like rubocop wants a comment here?
 class Oystercard
   attr_reader :balance
 
