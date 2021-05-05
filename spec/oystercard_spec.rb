@@ -1,4 +1,4 @@
-require 'oyster-card'
+require 'oyster_card'
 
 describe Oystercard do
   describe '#balance' do
