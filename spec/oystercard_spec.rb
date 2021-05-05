@@ -45,7 +45,7 @@ describe Oystercard do
     context 'after journey' do
       it 'returns false' do
         subject.touch_in(station)
-        subject.touch_out
+        subject.touch_out(station)
         expect(subject).not_to be_in_journey
       end
     end
@@ -77,12 +77,31 @@ describe Oystercard do
     end
 
     it 'reduces balance by the minimum fare' do
-      expect { subject.touch_out }.to change { subject.balance }.by(-1)
+      expect { subject.touch_out(station) }.to change { subject.balance }.by(-1)
     end
 
     it 'sets entry_station to nil' do
-      subject.touch_out
+      subject.touch_out(station)
       expect(subject.entry_station).to eq nil
     end
   end
+
+  describe '#journeys' do
+    context 'when initialised' do
+      it 'returns an empty array' do
+        expect(subject.journeys).to eq([])
+      end
+    end
+
+    context 'after one journey' do
+      it 'shows previous journeys' do
+        station2 = double('station')
+        subject.top_up(10)
+        subject.touch_in(station)
+        subject.touch_out(station2)
+        expect(subject.journeys).to eq([{entry_station: station, exit_station: station2}])
+      end
+    end
+  end
 end
+
