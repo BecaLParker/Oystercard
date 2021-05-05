@@ -41,6 +41,6 @@ class Oystercard
   end
 
   def add_journey(exit_station)
-    journeys << {entry_station: @entry_station, exit_station: exit_station}
+    journeys << { entry_station: @entry_station, exit_station: exit_station }
   end
 end
